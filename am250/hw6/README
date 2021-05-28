@@ -1,0 +1,15 @@
+Run "Hello World":
+   gfortran -fopenmp hello.f90 -o hello
+   export OMP_NUM_THREADS=10
+   ./hello
+
+Run "matrix":
+task 1: MATMUL
+   gfortran -fopenmp matrixMat.f90 -o matrixMat
+   export OMP_NUM_THREADS=10
+   ./matrixMat
+task 2: Do Loop
+   gfortran -fopenmp matrixDo.f90 -o matrixDo
+   export OMP_NUM_THREADS=10
+   ./matrixDo 
+

@@ -1,0 +1,49 @@
+Use Grape to run the following code interactively
+
+Task 1: hello World
+
+	mpif90 -o helloWorld helloWorld.f90 
+	qsub -q newest -l nodes=2:ppn=4 -I
+	cd $PBS_O_WORKDIR 
+	mpirun -np 8 ./helloWorld
+	exit
+
+
+Task 2: Simple Send and Receive
+
+	mpif90 -o sendRec sendRec.f90 
+	qsub -q newest -l nodes=2:ppn=4 -I
+	cd $PBS_O_WORKDIR 
+	mpirun -np 8 ./sendRec
+	exit
+
+
+Task 3: ping pong 
+
+!!!(in order to prove they did send and receive, I let 
+0 process send data + 1 and 
+1 process send data + 2)!!
+
+	mpif90 -o pingPong pingPong.f90
+	qsub -q newest -l nodes=2:ppn=4 -I
+	cd $PBS_O_WORKDIR 
+	mpirun -np 8 ./pingPong
+	exit
+
+
+Task 5: ring
+
+	mpif90 -o ring ring.f90 
+	qsub -q newest -l nodes=2:ppn=4 -I
+	cd $PBS_O_WORKDIR 
+	mpirun -np 8 ./ring 
+	exit
+
+
+Task 6: pi
+
+	mpif90 -o pi pi.f90 
+	qsub -q newest -l nodes=1:ppn=3 -I
+	cd $PBS_O_WORKDIR
+	mpirun -np 3 ./pi 
+	exit 
